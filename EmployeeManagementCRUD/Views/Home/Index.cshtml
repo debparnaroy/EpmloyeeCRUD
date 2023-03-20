@@ -35,7 +35,7 @@
     <table id="tblEmployee" class="display table table-striped" style="width: 100%">
         <thead>
             <tr>
-                <th><input type="checkbox" id="checkAll" onclick="enable()"></th>
+                <th><input type="checkbox" id="checkAll"></th>
                 <th>Name</th>
                 <th>Email</th>
                 <th>Address</th>
@@ -48,13 +48,12 @@
                 foreach (var item in Model)
                 {
                     <tr>
-                        <td><input type="checkbox" name="options[]" onclick="Individualenable()" class="checkIndividual" id="ckid" value="@item.Id"></td>
+                        <td><input type="checkbox" name="options[]" class="checkIndividual" value="@item.Id"></td>
                         <td>@item.Name</td>
                         <td>@item.Email</td>
                         <td>@item.Address</td>
                         <td>@item.Phone</td>
                         <td>
-
                             <button title="@item.Id" class="Edit" data-bs-toggle="modal" data-bs-target="#EditEmployeeModal"><i class="fa-solid fa-pen"></i></button>
                             <button title="@item.Id" class="Delete" data-bs-toggle="modal" data-bs-target="#DeleteEmployeeModal"><i class="fa-solid fa-trash"></i></button>
                         </td>
@@ -245,30 +244,4 @@
             });
         });
     });
-</script>
-
-<script>
-    function enable() {
-        var check = document.getElementById('checkAll');
-        var btn = document.getElementById('btnDelete');
-
-        if (check.checked) {
-            btn.removeAttribute("disabled")
-        }
-        else {
-            btn.disabled = true;
-        }
-    }
-
-    function Individualenable() {
-        var check = document.getElementById('ckid');
-        var btn = document.getElementById('btnDelete');
-
-        if (check.checked) {
-            btn.removeAttribute("disabled")
-        }
-        else {
-            btn.disabled = true;
-        }
-    }
 </script>

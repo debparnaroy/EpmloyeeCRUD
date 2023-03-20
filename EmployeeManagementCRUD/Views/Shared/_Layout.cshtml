@@ -30,22 +30,35 @@
                     info: "Showing _END_ out of _TOTAL_ entries"
                 }
             });
+
             // Checkbox
             $('#checkAll').change(function () {
-                if ($(this).is(":checked"))
+                if ($(this).is(":checked")) {
                     table.$('.checkIndividual').prop('checked', true);
-                else
+                    if (table.$('.checkIndividual').is(":checked")) {
+                        $('#btnDelete').removeAttr('disabled');
+                    }
+                }
+                else {
                     table.$('.checkIndividual').prop('checked', false);
+                    $('#btnDelete').attr('disabled', 'disabled');
+                }
             });
 
             table.$('.checkIndividual').change(function () {
                 if (!$(this).is(":checked"))
                     $('#checkAll').prop('checked', false);
-            });
-
-            table.$('.checkIndividual').change(function () {
-                if ($('.checkIndividual:checked').length == $('.checkIndividual').length)
+                else if (table.$('.checkIndividual:checked').length == table.$('.checkIndividual').length)
                     $('#checkAll').prop('checked', true);
+            });
+            
+            table.$('.checkIndividual').change(function () {
+                if (table.$('.checkIndividual:checked').length > 0) {
+                    $('#btnDelete').removeAttr('disabled');
+                }
+                else {
+                    $('#btnDelete').attr('disabled', 'disabled');
+                }
             });
         });
     </script>

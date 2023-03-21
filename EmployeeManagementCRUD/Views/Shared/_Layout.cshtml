@@ -4,9 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title</title>
-    @*<link href="~/Content/Site.css" rel="stylesheet" type="text/css" />*@
-    @*<link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />*@
-
+    
     <!--CDN for FontAwesome-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     
@@ -17,50 +15,7 @@
         @RenderBody()
     </div>
     <script src="~/Scripts/jquery-3.6.4.min.js"></script>
-    @*<script src="~/Scripts/bootstrap.min.js"></script>*@
     <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap5.min.js"></script>
-    <script>
-        $(document).ready(function () {
-            // DataTable
-            var table = $('#tblEmployee').DataTable({
-                lengthChange: false,
-                searching: false,
-                "language": {
-                    info: "Showing _END_ out of _TOTAL_ entries"
-                }
-            });
-
-            // Checkbox
-            $('#checkAll').change(function () {
-                if ($(this).is(":checked")) {
-                    table.$('.checkIndividual').prop('checked', true);
-                    if (table.$('.checkIndividual').is(":checked")) {
-                        $('#btnDelete').removeAttr('disabled');
-                    }
-                }
-                else {
-                    table.$('.checkIndividual').prop('checked', false);
-                    $('#btnDelete').attr('disabled', 'disabled');
-                }
-            });
-
-            table.$('.checkIndividual').change(function () {
-                if (!$(this).is(":checked"))
-                    $('#checkAll').prop('checked', false);
-                else if (table.$('.checkIndividual:checked').length == table.$('.checkIndividual').length)
-                    $('#checkAll').prop('checked', true);
-            });
-            
-            table.$('.checkIndividual').change(function () {
-                if (table.$('.checkIndividual:checked').length > 0) {
-                    $('#btnDelete').removeAttr('disabled');
-                }
-                else {
-                    $('#btnDelete').attr('disabled', 'disabled');
-                }
-            });
-        });
-    </script>
 </body>
 </html>

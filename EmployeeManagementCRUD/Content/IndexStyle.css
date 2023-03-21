@@ -90,3 +90,11 @@ div.dataTables_wrapper div.dataTables_paginate {
 input[type="text"]:focus, input[type="email"]:focus {
     box-shadow: none;
 }
+
+table.display tbody tr:nth-child(even):hover td {
+    background-color: #D4F1F4;
+}
+
+table.display tbody tr:nth-child(odd):hover td {
+    background-color: #D4F1F4;
+}
